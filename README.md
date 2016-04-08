@@ -13,6 +13,7 @@ podatkov so:
 Zanimale me bodo predvsem naslednje stvari:
 
 - Ali je večina županov iz starejših, med volilci že uveljavljenih  političnih strank ?
+- Koliko županov se menja oz. ostane na položaju dva ali več mandatov ?
 - Ali je število naselij odvisno od velikosti občine ?
 - Katera regija ima največji bruto dohodek na zaposlenega ?
 
