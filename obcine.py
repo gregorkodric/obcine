@@ -35,7 +35,7 @@ for _, _, link, ime, zupan, prebivalci, povrsina, email in podatki:
     podatki_obcine.append({'link': link, 'ime': ime, 'zupan': zupan, 'prebivalci': prebivalci, 'povrsina': povrsina, 'email': email})
     osnovne_definicije.zapisi_tabelo(podatki_obcine, ['ime', 'zupan', 'email', 'povrsina', 'prebivalci', 'link'], 'csv-datoteke/index.csv')
 
-def vrni_podatke_wiki(html_besedilo):
+def vrni_podatke_wiki_2014(html_besedilo):
     """
     Dela za Wikipedijo.
     """
@@ -43,28 +43,65 @@ def vrni_podatke_wiki(html_besedilo):
                    r"""<td><a href=.*?>(.*?)</a></td>""" + \
                    r"""<td><a href=".*?">(.*?)</a></td>""" 
 
-    stranke_2006 = r"""<td><a href="/wiki/.*?" title=.*?>(.*?)</a></td>""" + \
-                   r"""<td><a href=.*?>(.*?)</a></td>""" + \
-                   r"""<td><a href=".*?">(.*?)</a></td>"""
-
-    stranke_2002 = r"""<td><a href="/wiki/.*?" title=.*?>(.*?)</a></td>""" + \
-                   r"""<td><a href=.*?>(.*?)</a></td>""" + \
-                   r"""<td><a href=".*?">(.*?)</a></td>"""
-
+   
     stranke_1998 = r"""<td><a href="/wiki/.*?" title=.*?>(.*?)</a></td>""" + \
                    r"""<td><a href=.*?>(.*?)</a></td>""" + \
                    r"""<td><a href=".*?">(.*?)</a></td>"""
                        
 
-    rezultat = re.findall(stranke_2006, html_besedilo)
+    rezultat = re.findall(stranke_2014, html_besedilo)
     return rezultat
     
-podatki = vrni_podatke_wiki(stranke_html)
+podatki = vrni_podatke_wiki_2014(stranke_html)
 podatki_obcine = []
 for _, _, obcina, zupan, predlagatelj in podatki:
     podatki_obcine.append({'obcina': obcina, 'zupan': zupan, 'predlagatelj': predlagatelj})
     osnovne_definicije.zapisi_tabelo(podatki_obcine, ['obcina', 'zupan', 'predlagatelj'], 'csv-datoteke/2010-2014.csv')
- 
+    
+def vrni_podatke_wiki_2006(html_besedilo):
+    
+    stranke_2006 = r"""<td><a href="/wiki/.*?" title=.*?>(.*?)</a></td>""" + \
+                  r"""<td><a href=.*?>(.*?)</a></td>""" + \
+                  r"""<td><a href=".*?">(.*?)</a></td>"""
+    rezultat = re.findall(stranke_2006, html_besedilo)
+    return rezultat
+     
+podatki = vrni_podatke_wiki_2006(stranke1_html)
+podatki_obcine = []
+for _, _, obcina, zupan, predlagatelj in podatki:
+    podatki_obcine.append({'obcina': obcina, 'zupan': zupan, 'predlagatelj': predlagatelj})
+    osnovne_definicije.zapisi_tabelo(podatki_obcine, ['obcina', 'zupan', 'predlagatelj'], 'csv-datoteke/2002-2006.csv')
+    
+def vrni_podatke_wiki_2002(html_besedilo):
+    
+    stranke_2002 = r"""<td><a href="/wiki/.*?" title=.*?>(.*?)</a></td>""" + \
+                   r"""<td><a href=.*?>(.*?)</a></td>""" + \
+                   r"""<td><a href=".*?">(.*?)</a></td>"""
+                   
+    rezultat = re.findall(stranke_2002, html_besedilo)
+    return raezultat
+    
+podatki = vrni_podatke_wiki_2002(stranke2_html)
+podatki_obcine = []
+for _, _, obcina, zupan, predlagatelj in podatki:
+    podatki_obcine.append({'obcina': obcina, 'zupan': zupan, 'predlagatelj': predlagatelj})
+    osnovne_definicije.zapisi_tabelo(podatki_obcine, ['obcina', 'zupan', 'predlagatelj'], 'csv-datoteke/1998-2002.csv')
+    
+def vrni_podatke_wiki_1998(html_besedilo):
+    
+    stranke_1998 = r"""<td><a href="/wiki/.*?" title=.*?>(.*?)</a></td>""" + \
+                   r"""<td><a href=.*?>(.*?)</a></td>""" + \
+                   r"""<td><a href=".*?">(.*?)</a></td>"""
+                   
+    rezultat = re.findall(stranke_1998, html_besedilo)
+    return rezultat
+    
+podatki = vrni_podatke_wiki_1998(stranke3_html)
+podatki_obcine = []
+for _, _, obcina, zupan, predlagatelj in podatki:
+    podatki_obcine.append({'obcina': obcina, 'zupan': zupan, 'predlagatelj': predlagatelj})
+    osnovne_definicije.zapisi_tabelo(podatki_obcine, ['obcina', 'zupan', 'predlagatelj'], 'csv-datoteke/1994-1998.csv')
+        
 def vrni_podatke_wiki_brez_stranke(html_besedilo):
     """
     Dela za Wikipedijo za 2006 - 2010.
