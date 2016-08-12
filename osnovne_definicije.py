@@ -23,14 +23,14 @@ def shrani(url, ime_datoteke, vsili_prenos=False):
     except requests.exceptions.ConnectionError:
         print('stran ne obstaja!')
     pripravi_imenik(ime_datoteke)
-    with open(ime_datoteke, 'w') as datoteka:
+    with open(ime_datoteke, 'w', encoding='utf-8') as datoteka:
         datoteka.write(r.text)
         print('shranjeno!')
 
 
 def vsebina_datoteke(ime_datoteke):
     '''Vrne niz z vsebino datoteke z danim imenom.'''
-    with open(ime_datoteke) as datoteka:
+    with open(ime_datoteke, encoding='utf-8') as datoteka:
         vsebina = datoteka.read()
     return vsebina
 
@@ -43,7 +43,7 @@ def datoteke(imenik):
 def zapisi_tabelo(slovarji, imena_polj, ime_datoteke):
     pripravi_imenik(ime_datoteke)
     with open(ime_datoteke, 'w') as csv_dat:
-        writer = csv.DictWriter(csv_dat, fieldnames=imena_polj)
+        writer = csv.DictWriter(csv_dat, fieldnames=imena_polj, lineterminator='\n')
         writer.writeheader()
         for slovar in slovarji:
             writer.writerow(slovar)
@@ -62,4 +62,6 @@ def koren_besede(beseda):
 
 
 def koreni_besed(niz):
-    return {koren_besede(beseda) for beseda in niz.replace('-', ' ').lower().split() if beseda}
+    return {koren_besede(beseda) for beseda in niz.replace('-', ' ').lower().split()if beseda}
+
+
