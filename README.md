@@ -8,12 +8,10 @@ podatkov so:
 - število prebivalcev v posamezni občini
 - velikost občine
 - število naselij v občini
-- politične stranke, v katerih so aktivni župani
+
 
 Zanimale me bodo predvsem naslednje stvari:
 
-- Ali je večina županov iz starejših, med volilci že uveljavljenih  političnih strank ?
-- Koliko županov se menja oz. ostane na položaju dva ali več mandatov ?
-- Ali je število naselij odvisno od velikosti občine ?
-- Katera regija ima največji bruto dohodek na zaposlenega ?
-
+- Procent županov z dvema zaporednima mandatoma
+- Katera pokrajina ima največ občin ?
+- Na koncu pa bom izračunal še gostoto naseljenosti v posameznem naselju.
